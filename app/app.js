@@ -11,7 +11,7 @@ app.use('/api', router)
 router.use('/mutant', require('./routes/mutant'))
 
 //arrancamos el servidor
-var port = process.env.PORT || 8080 
+var port = process.env.PORT || 8080
 app.listen(port)
 console.log('API escuchando en el puerto ' + port)
 

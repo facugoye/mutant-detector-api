@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/46f96639-9d30-4065-a32a-92ce3642f843/resourceGroups/MutantDetector/providers/Microsoft.Web/sites/mutant-detector",
+    "appService.deploySubpath": "."
+}
