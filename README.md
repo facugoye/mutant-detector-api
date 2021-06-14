@@ -2,7 +2,14 @@
 reconocimiento de mutantes por medio de su ADN
 
 ## API
-https://mutant-detector.azurewebsites.net/
+https://mutant-detector.azurewebsites.net/api
+
+## Postman Collection
+Para ejectutar las llamadas a la API se puede utilizar Postman https://www.postman.com/.
+
+En la carpeta postman se encunentra un backup de la coleccion que  puede importarse directamente. 
+
+Utilizar el environment llamado CodeDetector Azure
 
 ## Analisis del requerimiento.
 
@@ -20,19 +27,27 @@ Tecnologias seleccionadas: Nodejs, SQL, Azure
 
 * Ivnvestigar tecnologias
 	+ [X] Nodejs 
-	+ [ ] Mocha 
+	+ [X] Mocha 
 	+ [X] Azure
 	+ [ ] BD?
 
-* [ ] Codificar el detector
+* [X] Codificar el detector
 * [ ] UT
+	+ [X] UT detector provider
+	+ [ ] UT API
 * [ ] Integration test
 * [ ] stress test
-		 
-## Links
 
-Code detector Azure
+
+## Despliegue
+
+El despliegue se realiza automaticamente por cada commit en la rama main de este repositorio.
+
+El despligue en azure corre automaticamente los test unitarios
+
 https://portal.azure.com/#@f1d7bc82-d201-445e-bd03-ae20d7e242b7/resource/subscriptions/46f96639-9d30-4065-a32a-92ce3642f843/resourceGroups/MutantDetector/providers/Microsoft.Web/sites/mutant-detector/appServices
+
+## Links
 
 Creación de una API con node.js
 https://juanda.gitbooks.io/webapps/content/api/creacion_de_una_api_con_nodejs.html/
@@ -40,6 +55,4 @@ https://juanda.gitbooks.io/webapps/content/api/creacion_de_una_api_con_nodejs.ht
 Deploy Express.js to Azure App Service using Visual Studio Code
 https://docs.microsoft.com/en-us/azure/developer/javascript/tutorial/deploy-nodejs-azure-app-service-with-visual-studio-code?tabs=bash
 
-https://mochajs.org/#getting-started
-
-
+Mocha Test https://mochajs.org/#getting-started
