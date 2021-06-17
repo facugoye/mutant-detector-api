@@ -5,7 +5,6 @@
     "title": "Mutant Detector API",
     "description": "Permite evaluar ADNs para determinar si el humano eso no un mutante"
   },
-  "host": "https://mutant-detector.azurewebsites.net/",
   "basePath": "/api",
   "consumes": [
     "application/json"
