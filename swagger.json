@@ -1,0 +1,93 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Mutant Detector API",
+    "description": "Permite evaluar ADNs para determinar si el humano eso no un mutante"
+  },
+  "host": "https://mutant-detector.azurewebsites.net/",
+  "basePath": "/api",
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/mutant/stats": {
+      "get": {
+        "summary": "Devuelve un json con las estadisticas de las evaluaciones de ADN realizadas por medio de la API",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Stats"
+            }
+          }
+        }
+      }
+    },
+    "/mutant": {
+      "post": {
+        "description": "Evalua un ADN para derminar si el humano es un mutante o no",
+        "parameters": [
+          {
+            "name": "dna",
+            "in": "body",
+            "description": "ADN a evaluar",
+            "schema": {
+              "$ref": "#/definitions/Adn"
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "El ADN analizado corresponde a un mutante",
+            "schema": {
+              "$ref": "#/definitions/Message"
+            }
+          },
+          "403": {
+            "description": "El ADN analizado NO corresponde a un mutante",
+            "schema": {
+              "$ref": "#/definitions/Message"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Stats": {
+      "properties": {
+        "count_mutant_dna": {
+          "type": "integer"
+        },
+        "count_human_dna": {
+          "type": "integer"
+        },
+        "ratio": {
+          "type": "number"
+        }
+      }
+    },
+    "Adn": {
+      "properties": {
+        "dna": {
+          "type": "array",
+          "items": {
+            "type":"string"
+          }
+        }
+      }
+    },
+    "Message": {
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
