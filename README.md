@@ -5,7 +5,7 @@ reconocimiento de mutantes por medio de su ADN
 https://mutant-detector.azurewebsites.net/api
 
 ## Documnetacion (Swagger)
-https://mutant-detector.azurewebsites.net/api/api-docs
+https://mutant-detector.azurewebsites.net/api-docs
 
 ## Postman Collection
 Para ejectutar las llamadas a la API se puede utilizar Postman https://www.postman.com/.
