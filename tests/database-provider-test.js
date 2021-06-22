@@ -10,7 +10,7 @@ var connParameters = {
 
 var db = require('../app/modules/databaseProvider')(
     connParameters,
-    require('../app/modules/hash')
+    require('../app/modules/hash') //TODO Mockear esta dependencia
     )
 
 describe("database-provider", () => {
