@@ -1,5 +1,5 @@
 var assert = require('assert')
-var mutantDetector = require('../app/providers/mutant-detector')
+var mutantDetector = require('../app/modules/mutantDetector')
 var dnaMutante = ["ATGCGA", "CAGTGC", "TTATGT", "AGAAGG", "CCCCTA", "TCACTG"]
 
 describe('mutant-detector-provider', () => {

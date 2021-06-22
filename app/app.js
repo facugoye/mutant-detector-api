@@ -3,12 +3,27 @@ var app = express()
 
 var bodyParser = require('body-parser')
 // app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())            
+app.use(bodyParser.json())   
+
+var serviceLocator = require('./modules/service-locator')()
+
+serviceLocator.register('mutantDetector', require('./modules/mutantDetector'))
+
+serviceLocator.register('hash', require('./modules/hash'))
+
+serviceLocator.register('connParameters', {
+  server:'mutant-detector-db-server.database.windows.net',
+  database:'mutant-detector-db-database',
+  userName:'mutant-detector-db-server-admin',
+  password: 'XMALD820L504LJCL$'
+})
+serviceLocator.factory('databaseProvider', require('./modules/databaseProvider'))
 
 var router = require('./routes')
 app.use('/api', router)
 
-router.use('/mutant', require('./routes/mutant'))
+serviceLocator.factory('mutant', require('./routes/mutant'))
+router.use('/mutant', serviceLocator.get('mutant'))
 
 
 const swaggerUi = require('swagger-ui-express')
